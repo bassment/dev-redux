@@ -1,4 +1,5 @@
 .button {
-  composes: btn btn-primary from 'basscss/css/basscss.css';
+  composes: btn from 'basscss-btn/css/btn.css';
+  composes: btn-primary from 'basscss-btn-primary/css/btn-primary.css';
   background-color: green;
 }

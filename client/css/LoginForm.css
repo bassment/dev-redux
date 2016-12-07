@@ -1,10 +1,13 @@
 .button {
-  composes: btn btn-outline mb1 black from 'basscss/css/basscss.css';
+  composes: mb1 black from 'basscss/css/basscss.css';
+  composes: btn from 'basscss-btn/css/btn.css';
+  composes: btn-outline from 'basscss-btn-outline/css/btn-outline.css';
   margin: 5px 5px;
 }
 
 .googleButton {
-  composes: btn btn-primary mb1 bg-red from 'basscss/css/basscss.css';
+  composes: btn from 'basscss-btn/css/btn.css';
+  composes: btn-primary from 'basscss-btn-primary/css/btn-primary.css';
   display: block;
   margin: 10px auto;
 }

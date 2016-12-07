@@ -3,19 +3,13 @@ export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 export const RESET_COUNTER = 'RESET_COUNTER';
 
 export function increment() {
-  return {
-    type: INCREMENT_COUNTER
-  };
+    return {type: INCREMENT_COUNTER};
 }
 
 export function decrement() {
-  return {
-    type: DECREMENT_COUNTER
-  };
+    return {type: DECREMENT_COUNTER};
 }
 
 export function reset() {
-  return {
-    type: RESET_COUNTER
-  };
+    return {type: RESET_COUNTER};
 }
