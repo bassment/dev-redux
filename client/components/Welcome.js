@@ -1,5 +1,5 @@
-import shared from '../css/shared.css';
-import styles from '../css/Welcome.css';
+import shared from '../css/shared.scss';
+import styles from '../css/Welcome.scss';
 
 import React from 'react';
 import {Link} from 'react-router';
@@ -12,7 +12,7 @@ export default class Welcome extends React.Component {
                 <Helmet title="React-Redux"/>
                 <section className={shared.section}>
                     <h1>Welcome!</h1>
-                    <p>If you want to Count...</p>
+                    <p>If you want to Count</p>
                     <Link to="/count">
                         <button className={styles.button}>
                             Click here!

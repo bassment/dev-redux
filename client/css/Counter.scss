@@ -1,3 +1,5 @@
+$color-blue: blue;
+
 .button {
   composes: mb1 black from 'basscss/css/basscss.css';
   composes: btn from 'basscss-btn/css/btn.css';
@@ -10,5 +12,5 @@
   composes: btn-primary from 'basscss-btn-primary/css/btn-primary.css';
   display: block;
   margin: 10px auto;
-  background-color: blue;
+  background-color: $color-blue;
 }
