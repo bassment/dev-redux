@@ -1,5 +1,5 @@
-import styles from '../css/Counter.scss';
-import shared from '../css/shared.scss';
+import styles from '../scss/Counter.scss';
+import shared from '../scss/shared.scss';
 
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';

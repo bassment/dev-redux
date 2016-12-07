@@ -1,5 +1,5 @@
-import shared from '../css/shared.scss';
-import styles from '../css/LoginForm.scss';
+import shared from '../scss/shared.scss';
+import styles from '../scss/LoginForm.scss';
 
 import React, {PropTypes} from 'react';
 import Helmet from 'react-helmet';

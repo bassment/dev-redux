@@ -1,5 +1,5 @@
-import shared from '../css/shared.scss';
-import styles from '../css/Welcome.scss';
+import shared from '../scss/shared.scss';
+import styles from '../scss/Welcome.scss';
 
 import React from 'react';
 import {Link} from 'react-router';

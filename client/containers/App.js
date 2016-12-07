@@ -1,4 +1,4 @@
-import '../css/globals.scss';
+import '../scss/globals.scss';
 
 import React, {PropTypes} from 'react';
 import DevTools from './DevTools';
