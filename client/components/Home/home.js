@@ -1,5 +1,5 @@
-import shared from '../scss/shared.scss';
-import styles from '../scss/Welcome.scss';
+import shared from 'styles/shared.scss';
+import styles from './home.scss';
 
 import React from 'react';
 import {Link} from 'react-router';
@@ -13,7 +13,7 @@ export default class Welcome extends React.Component {
                 <section className={shared['section']}>
                     <h1>Welcome!</h1>
                     <p>If you want to Count</p>
-                    <Link to="/count">
+                    <Link to="/counter">
                         <button className={styles['button']}>
                             Click here!
                         </button>

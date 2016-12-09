@@ -1,12 +1,12 @@
 import Firebase from 'firebase';
-import * as API from '../api/RestAPI';
+import * as API from 'helpers/RestAPI';
 
 import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 
-import LoginForm from '../components/LoginForm';
-import {signin, signout} from '../actions/login';
-import {reset} from '../actions/counter';
+import Login from 'components/Login/login';
+import {signin, signout} from 'actions/login';
+import {reset} from 'actions/counter';
 
 const mapStateToProps = (state) => {
     return {user: state.login.user, error: state.login.error};
@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => {
                     const user = response.user.username;
                     localStorage.setItem('user', user);
                     dispatch(signin(user));
-                    browserHistory.push('/count');
+                    browserHistory.push('/counter');
                 } else {
                     const error = response.message;
                     dispatch(signin(null, error));
@@ -46,7 +46,7 @@ const mapDispatchToProps = (dispatch) => {
                 const googleUser = user.google.displayName;
                 localStorage.setItem('user', googleUser);
                 dispatch(signin(googleUser, null));
-                browserHistory.push('/count');
+                browserHistory.push('/counter');
             })
             .catch(console.error);
         },
@@ -56,7 +56,7 @@ const mapDispatchToProps = (dispatch) => {
                     const user = response.user.username;
                     localStorage.setItem('user', user);
                     dispatch(signin(user, null));
-                    browserHistory.push('/count');
+                    browserHistory.push('/counter');
                 } else {
                     const error = response.message;
                     dispatch(signin(null, error));
@@ -71,6 +71,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-const Login = connect(mapStateToProps, mapDispatchToProps)(LoginForm);
-
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

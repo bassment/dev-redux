@@ -1,15 +1,15 @@
-import '../scss/globals.scss';
+import 'styles/globals.scss';
 
 import React, {PropTypes} from 'react';
 import DevTools from './DevTools';
 
-const App = ({children}) => <div>
-    {children}
-    {process.env.NODE_ENV !== 'production' ? <DevTools/> : null}
-</div>;
-
-App.propTypes = {
-    children: PropTypes.object.isRequired
-};
-
-export default App;
+export default class App extends React.Component {
+    render() {
+        return (
+            <div>
+                {this.props.children}
+                {process.env.NODE_ENV !== 'production' ? <DevTools/> : null}
+            </div>
+        );
+    }
+}
