@@ -20,10 +20,10 @@ export default class Login extends React.Component {
         if (user) {
             return (
                 <div>
-                    <section className={shared.section}>
+                    <section className={shared['section']}>
                         <p>Hi {user}!</p>
                         <p>
-                            <button className={styles.button} onClick={onSignOut}>Sign Out</button>
+                            <button className={styles['button']} onClick={onSignOut}>Sign Out</button>
                         </p>
                     </section>
                 </div>
@@ -33,23 +33,23 @@ export default class Login extends React.Component {
         return (
             <div>
                 <Helmet title="Login"/>
-                <section className={shared.section}>
-                    <p>
-                        <input type="text" placeholder="Username" ref={node => { username = node; }}/>
-                    </p>
-                    <p>
-                        <input type="password" placeholder="Password" ref={node => { password = node; }}/>
-                    </p>
-                    {error ? <span className={styles.errorMessage}> {error} </span> : null }
-                    <p>
-                        <button className={styles.button} onClick={() => onSignIn(username.value, password.value)}>
+                <section className={shared['section']}>
+                    <form>
+                        <input className={styles['input']}
+                            type="text" placeholder="Username" ref={node => { username = node; }}/>
+                        <input className={styles['input']}
+                            type="password" placeholder="Password" ref={node => { password = node; }}/>
+                    </form>
+                    {error ? <span className={styles['message-error']}> {error} </span> : null }
+                    <div className={styles['login-area']}>
+                        <button className={styles['button']} onClick={() => onSignIn(username.value, password.value)}>
                             Sign In
                         </button>
-                        <button className={styles.button} onClick={() => onSignUp(username.value, password.value)}>
+                        <button className={styles['button']} onClick={() => onSignUp(username.value, password.value)}>
                             Sign Up
                         </button>
-                        <button className={styles.googleButton} onClick={onGoogleSignIn}>Login with Google</button>
-                    </p>
+                    </div>
+                    <button className={styles['button-google']} onClick={onGoogleSignIn}>Login with Google</button>
                 </section>
             </div>
         );

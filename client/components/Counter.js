@@ -12,22 +12,23 @@ export default class Counter extends React.Component {
         return (
             <div>
                 <Helmet title="Count"/>
-                <section className={shared.section}>
+                <section className={shared['section']}>
                     <h1>Counter: {counter}</h1>
                     <p>Click the button to increment the counter</p>
-                    <p>
-                        <button className={styles.button} onClick={increment}>
+                    <div>
+                        <button className={styles['button']} onClick={increment}>
                             Increment
                         </button>
-                        <button className={styles.button} onClick={decrement}>
+                        <button className={styles['button']} onClick={decrement}>
                             Decrement
                         </button>
-                    </p>
-                    <p>
-                        <Link to="/">
-                            <button className={styles.homeButton}>Go Home</button>
-                        </Link>
-                    </p>
+                    </div>
+                    <Link to="/">
+                        <button className={styles['button-home']}>Go Home</button>
+                    </Link>
+                    <Link to="/login">
+                        <button className={styles['button']}>Logout</button>
+                    </Link>
                 </section>
             </div>
         );

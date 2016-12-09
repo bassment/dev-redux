@@ -14,9 +14,10 @@ function requireAuth(nextState, replace) {
 
 const routes = (
     <Route component={App}>
+        <Route path="/login" component={Login}/>
         <Route path="/">
             <IndexRoute component={Home}/>
-            <Route path="count" component={Count}/>
+            <Route path="count" component={Count} onEnter={requireAuth}/>
         </Route>
     </Route>
 );

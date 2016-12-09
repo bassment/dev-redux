@@ -1,17 +1,24 @@
-.button {
-  composes: mb1 black from 'basscss/css/basscss.css';
-  composes: btn from 'basscss-btn/css/btn.css';
-  composes: btn-outline from 'basscss-btn-outline/css/btn-outline.css';
-  margin: 5px 5px;
+.login-area {
+  composes: m2 from 'basscss/css/basscss.css';
 }
 
-.googleButton {
+.button {
+  composes: btn from 'basscss-btn/css/btn.css';
+  composes: btn-outline from 'basscss-btn-outline/css/btn-outline.css';
+  margin-left: 15px;
+}
+
+.button-google {
   composes: btn from 'basscss-btn/css/btn.css';
   composes: btn-primary from 'basscss-btn-primary/css/btn-primary.css';
-  display: block;
   margin: 10px auto;
 }
 
-.errorMessage {
+.message-error {
   color: #FF1744;
+}
+
+.input {
+  composes: p0 from 'basscss/css/basscss.css';
+  composes: input from 'basscss-forms/index.css';
 }

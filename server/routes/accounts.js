@@ -4,12 +4,12 @@
 const Firebase = require('firebase');
 const crypto = require('crypto');
 
-const config = {
-    apiKey: 'AIzaSyC_KoFwCO8RieNtLar83E8-6ykBO3LufL4',
-    authDomain: 'dev-redux.firebaseapp.com',
-    databaseURL: 'https://dev-redux.firebaseio.com',
-    storageBucket: 'dev-redux.appspot.com',
-    messagingSenderId: '650090666807'
+var config = {
+    apiKey: "AIzaSyCggQWwXBEBoOxdxZSKtttdEXlxKr7DrwQ",
+    authDomain: "dev-redux-f4d1b.firebaseapp.com",
+    databaseURL: "https://dev-redux-f4d1b.firebaseio.com",
+    storageBucket: "dev-redux-f4d1b.appspot.com",
+    messagingSenderId: "1016976849868"
 };
 
 const firebase = Firebase.initializeApp(config);
@@ -32,21 +32,23 @@ router.post('/api/signup', function cb(req, res) {
         return res.json({signedIn: false, message: 'No username or password'});
     }
 
-    users.child(username).once('value', function get(snapshot) {
-        if (snapshot.exists()) {
-            return res.json({signedIn: false, message: 'User already exists'});
-        }
+    users.child(username).once('value')
+        .then(function(snapshot) {
+            if (snapshot.exists()) {
+                return res.json({signedIn: false, message: 'User already exists'});
+            }
 
-        const userObj = {
-            username: username,
-            passwordHash: hash(password)
-        };
+            const userObj = {
+                username: username,
+                passwordHash: hash(password)
+            };
 
-        users.child(username).set(userObj);
-        req.session.user = userObj;
+            users.child(username).set(userObj);
+            req.session.user = userObj;
 
-        res.json({signedIn: true, user: userObj});
-    });
+            res.json({signedIn: true, user: userObj});
+        })
+        .catch(console.error);
 });
 
 router.post('/api/signin', function get(req, res) {
@@ -57,15 +59,17 @@ router.post('/api/signin', function get(req, res) {
         return res.json({signedIn: false, message: 'No username or password'});
     }
 
-    users.child(username).once('value', function cb(snapshot) {
-        if (!snapshot.exists() || snapshot.child('passwordHash').val() !== hash(password)) {
-            return res.json({signedIn: false, message: 'Wrong username or password'});
-        }
+    users.child(username).once('value')
+        .then(function(snapshot) {
+            if (!snapshot.exists() || snapshot.child('passwordHash').val() !== hash(password)) {
+                return res.json({signedIn: false, message: 'Wrong username or password'});
+            }
 
-        const user = snapshot.exportVal();
-        req.session.user = user;
-        res.json({signedIn: true, user: user});
-    });
+            const user = snapshot.exportVal();
+            req.session.user = user;
+            res.json({signedIn: true, user: user});
+        })
+        .catch(console.error);
 });
 
 router.post('/api/signout', function cb(req, res) {

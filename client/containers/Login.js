@@ -28,16 +28,27 @@ const mapDispatchToProps = (dispatch) => {
             });
         },
         onGoogleSignIn: () => {
-            const firebaseRef = new Firebase('https://automat.firebaseio.com/users');
-            firebaseRef.authWithOAuthPopup('google', (error, user) => {
-                if (error) {
-                    return;
-                }
+            var config = {
+                apiKey: "AIzaSyCggQWwXBEBoOxdxZSKtttdEXlxKr7DrwQ",
+                authDomain: "dev-redux-f4d1b.firebaseapp.com",
+                databaseURL: "https://dev-redux-f4d1b.firebaseio.com",
+                storageBucket: "dev-redux-f4d1b.appspot.com",
+                messagingSenderId: "1016976849868"
+            };
+
+            const firebase = Firebase.initializeApp(config);
+            const provider = new Firebase.auth.GoogleAuthProvider();
+            provider.addScope('profile');
+            provider.addScope('email');
+
+            firebase.auth().signInWithPopup(provider)
+            .then(user => {
                 const googleUser = user.google.displayName;
                 localStorage.setItem('user', googleUser);
                 dispatch(signin(googleUser, null));
                 browserHistory.push('/count');
-            });
+            })
+            .catch(console.error);
         },
         onSignUp: (username, password) => {
             API.signup(username, password).then(response => {

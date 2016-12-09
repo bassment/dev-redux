@@ -10,11 +10,11 @@ export default class Welcome extends React.Component {
         return (
             <div>
                 <Helmet title="React-Redux"/>
-                <section className={shared.section}>
+                <section className={shared['section']}>
                     <h1>Welcome!</h1>
                     <p>If you want to Count</p>
                     <Link to="/count">
-                        <button className={styles.button}>
+                        <button className={styles['button']}>
                             Click here!
                         </button>
                     </Link>

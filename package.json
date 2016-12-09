@@ -53,6 +53,7 @@
     "basscss-btn": "^1.1.1",
     "basscss-btn-outline": "^1.1.0",
     "basscss-btn-primary": "^1.1.0",
+    "basscss-forms": "^1.0.0",
     "better-npm-run": "0.0.13",
     "css-loader": "^0.26.1",
     "eslint": "^3.11.1",
