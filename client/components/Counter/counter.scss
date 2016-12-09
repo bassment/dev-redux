@@ -1,4 +1,4 @@
-$color-blue: blue;
+@import '~styles/variables.scss';
 
 .button {
   composes: btn from 'basscss-btn/css/btn.css';
